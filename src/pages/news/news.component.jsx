@@ -1,30 +1,28 @@
 import React from 'react';
-import News_Data from'./news.data.js'
-//embedding content preview to news Component
-import  ContentPreview from'../../components/content-preview/content-preview.component';
+import News_Data from './news.data.js'
+//embedding collection preview to shop component
+import ContentPreview from '../../components/content-preview/content-preview.component'
 
-//class component that we need to deal with data /state
-class NewsPage extends React.Component {
-    constructor(props) {
+//class component as we need to deal with data/state
+class NewsPage extends React.Component{
+    constructor(props){
         super(props);
-
         this.state = {
-            collections:News_Data
-
+            content:News_Data
         }
-
     }
-    render () {
-        const { collections } = this.state;
-        return (<div className=" news-page">
+  
+    render(){
+        const {content} = this.state;
+        return (<div className="news-page">
                 {
-                  collections.map(({id,...othercollectionProps}) =>(
-                    <ContentPreview key={id}{...othercollectionProps}/>
-                  ))  
-                  }
+                    content.map(({id, ...otherContentProps}) => (
+                        <ContentPreview key={id} {...otherContentProps}/>
+                    ))
+                }
             </div>
-        )
-            }
-    
+            )
+    }
 }
+
 export default NewsPage;
